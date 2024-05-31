@@ -8,3 +8,4 @@ Cargo.lock
 
 # file createds by `recorder` example
 rec.wav
+.DS_Store

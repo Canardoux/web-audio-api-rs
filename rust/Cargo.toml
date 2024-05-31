@@ -1,0 +1,62 @@
+[package]
+name = "rust_lib_tau_core"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+#crate-type = ["cdylib", "staticlib"]
+crate-type = ["lib", "cdylib", "staticlib"] # cdylib is NOT recommended
+
+[dependencies]
+env_logger = "0.11.3"
+flutter_rust_bridge = "=2.0.0-dev.36"
+#oboe = "0.6.1"
+#oboe = { version = "0.6.1", features = ["java-interface", "shared-stdcxx"] }
+#web-audio-api = "0.45.0"
+#web-audio-api = { path = "../web-audio-api-rs" }
+log = "0.4.21"
+#anyhow = "1.0.86"
+trace = "0.1.7"
+oslog = "0.2.0"
+#lazy_static = "1.4.0"
+simple-log = "1.6.0"
+#parking_lot = "0.12.2"
+#sink = "0.1.0"
+#futures = "0.3.30"
+flutter_logger = "0.6.1"
+symphonia = { version = "0.5", default-features = false }
+creek = "1.2"
+crossbeam-channel = "0.5"
+realfft = "3.3"
+arrayvec = "0.7"
+futures-channel = { version = "0.3.30", features = ["sink"] }
+futures-core = { version = "0.3.30", default-features = false }
+futures-util = { version = "0.3.30", default-features = false, features = [
+    "sink",
+] }
+smallvec = "1.11"
+arc-swap = "1.6"
+num-complex = "0.4"
+float_eq = "1.0"
+hrtf = "0.8.1"
+rubato = "0.15"
+dasp_sample = "0.11"
+vecmath = "1.0"
+llq = "0.1.1"
+hound = "3.5"
+
+[target.'cfg(any(target_arch = "x86", target_arch = "x86_64", target_arch = "aarch64"))'.dependencies]
+no_denormals = "0.1.2"
+
+
+
+[profile.dev]
+debug = true
+strip = false
+opt-level = 0
+
+[profile.release]
+strip = false
+debug = true
+opt-level = 0
+
